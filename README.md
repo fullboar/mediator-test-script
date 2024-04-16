@@ -176,3 +176,10 @@ V1.
 Maybe. [RFC 0160](https://github.com/hyperledger/aries-rfcs/blob/main/features/0160-connection-protocol/README.md) does **not** require acknowledgement when a conneciton enters the "completed" state. Its is by convention that a controller should confirm the state before sending a message (offer) over the conneciton. This is a recongized shortcoming that shoudl be addressed in [V2](https://identity.foundation/didcomm-messaging/spec/).
 
 However, it may be a bug in that an ACA-py mediator does not atempt re-delivery of queued messages if that message comes in before the conneciton is "completed". 
+
+
+# Notes
+
+```console
+for i in {1..3}; do docker run -d -v $(pwd):/work -e PATH=/root/.nvm/versions/node/v16.20.2/bin:/work/node_modules/.bin vsc-mediator-test-script-b99a03ada8429f0230bf0c33e35434dd3a78c81eff48cba70a44af6eb0fc50de ts-node /work/src/1917.ts && sleep 10; done
+```
