@@ -1,10 +1,26 @@
 {
-  "build": { "dockerfile": "Dockerfile" },
+  "$schema": "https://aka.ms/vscode-remote/devcontainer-schema",
+  "name": "Node",
+  "dockerComposeFile": [
+    "docker-compose.yml"
+  ],
+  "service": "workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/work,type=bind",
+  "workspaceFolder": "/work",
+  "postCreateCommand": "yarn set version 4.0.0 && yarn install",
   "runArgs": [
     "--env-file",
     ".devcontainer/devcontainer.env"
   ],
-  "workspaceMount": "source=${localWorkspaceFolder},target=/work,type=bind",
-  "workspaceFolder": "/work"
-  // "remoteUser": "vscode"
+  "containerEnv": {
+    "NODE_ENV": "development"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "github.copilot",
+        "github.copilot-chat"
+      ]
+    }
+  }
 }

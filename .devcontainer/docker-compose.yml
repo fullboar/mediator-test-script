@@ -1,0 +1,17 @@
+version: '3.9'
+
+networks:
+  local_network:
+    name: local_network
+
+services:
+  workspace:
+    image: node:18-bullseye
+    working_dir: /work
+    volumes:
+      - ../:/work
+    # ports:
+    #   - "3000:3000"
+    tty: true
+    networks:
+      - local_network
